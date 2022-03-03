@@ -1,0 +1,25 @@
+  public static IDictionary<int, List<int>> TreeToListDictInt(DataTree<object> TreeInput)
+  {
+    ///Accessing Value Method
+    ///1st
+    ///DictAS[1];
+    ///2nd
+    ///List<int> valList = new List<int>();
+    ///DictAS.TryGetValue(1, out valList);
+
+    IDictionary<int, List<int>> DictAS = new Dictionary<int, List<int>>();
+
+    for (int i = 0; i < TreeInput.BranchCount; i++)
+    {
+      List<int> values = new List<int>();
+
+      for (int j = 0; j < TreeInput.Branch(i).Count; j++)
+      {
+        values.Add((int) TreeInput.Branch(i)[j]);
+      }
+
+      DictAS.Add(i, values);
+    }
+
+    return DictAS;
+  }
